@@ -31,3 +31,16 @@
 Права доступа на папку исполнения CodeSys: sudo chmod -R 0777 /var/opt/codesys Изменить порт визуализации: /etc/CODESYSControl.cfg: [CmpWebServer] WebServerPortNr=80 Если используешь стандартный uart-RPi, то нужно запретить вход в оболочку в raspi-config (38600 б/с). А хардовый порт нужно оставить! Если включаешь файл Питона в проект, то ему надо дать права на запуск: sudo chmod 0777 /var/opt/codesys/PlcLogic/Application/file.py Необходима перезагрузка: sudo reboot (рабочая папка: /var/opt/codesys) (загруженные в проект файлы ложаться сюда: /var/opt/codesys/PlcLogic/Application) (фавикон для визуализации (можно положить уже в CodeSys): /var/opt/codesys/PlcLogic/visu/favicon.ico)
 
 Автоматический перезапуск агента RunTime. Добавляем в файл /etc/CODESYSControl_User.cfg: [SysProcess] Command=AllowAll Добавляем в проект библиотеку SysProcess. Пишем в проекте: pResult: POINTER TO SysProcess.SysTypes.RTS_IEC_RESULT; SysProcess.SysProcessExecuteCommand('sudo service codesyscontrol restart', pResult);
+
+// Устанавлием сервер доступа к файлам
+sudo apt install vsftpd
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
+sudo nano /etc/vsftpd.conf
+	anonymous_enable=NO
+	local_enable=YES
+	write_enable=YES
+	rsa_cert_file=/etc/ssl/private/vsftpd.pem
+	rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+	ssl_enable=YES
+systemctl restart vsftpd
+systemctl status vsftpd
