@@ -1,9 +1,5 @@
 # NatTraversal
 
-Пример с логированием и разлогированием для CoDeSys 3.5
-
-В примере есть три роли пользователей: Admin (pass = 1), service (pass = 2), Operator (pass = 3) Всем им доступны разные уровни визуализации. А Admin может видеть всех пользователей, доавлять новых и блокировать некоторых.
-
 Код отрабатывался на платформе Raspberry. Порядок установки:
 
 Форматируем флешку в Windows после Linux: diskpart, list disk, select disk X, clean, create partition primary, format quick, assign
