@@ -44,3 +44,19 @@ sudo nano /etc/vsftpd.conf
 	ssl_enable=YES
 systemctl restart vsftpd
 systemctl status vsftpd
+
+Для версия 4 использовано определение глобального адреса. Для этого используется сторонний сайт http://httpbin.org/get. Который возвращает JSON сообщение в ответ:
+{
+    "args": {},
+    "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "Accept-Encoding": "gzip, deflate",
+        "Accept-Language": "ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7",
+        "Host": "httpbin.org",
+        "Upgrade-Insecure-Requests": "1",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0",
+        "X-Amzn-Trace-Id": "Root=1-6628b5f4-330f7b457bad93857bf10cdf"
+    },
+    "origin": "78.10.222.186",
+    "url": "http://httpbin.org/get"
+}
