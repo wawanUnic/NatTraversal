@@ -60,3 +60,5 @@ systemctl status vsftpd
     "origin": "78.10.222.186",
     "url": "http://httpbin.org/get"
 }
+
+Переключать направление движения пакетов можно через перечисление mode. Оно глобально для двух устройств и находится во вкладке POU (Устройства-POU-EdgeGateway-RaspberryPi-LinuxARM64).
