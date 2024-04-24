@@ -62,3 +62,6 @@ systemctl status vsftpd
 }
 
 Переключать направление движения пакетов можно через перечисление mode. Оно глобально для двух устройств и находится во вкладке POU (Устройства-POU-EdgeGateway-RaspberryPi-LinuxARM64).
+
+Настройка HTTPS: /etc/CODESYSControl.cfg :[CmpWebServer] ConnectionType=3 WebServerPortNr=80 WebServerSecurePortNr=443. Сгенерировать сертификат через SequreAgent. в PLC Shell: cert-gendhparams 1024 Тогда он будет работать хотя бы с IE и Firefox. Об этом: https://forge.codesys.com/forge/talk/Runtime/thread/0451764381/
+
